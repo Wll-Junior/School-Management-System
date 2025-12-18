@@ -1,0 +1,8 @@
+export default function RequireAuth({ children }) {
+  const token = localStorage.getItem('access');
+  if (!token) {
+    window.location.href = '/login';
+    return null;
+  }
+  return children;
+}
