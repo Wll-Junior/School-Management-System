@@ -1,8 +1,15 @@
-from django.urls import path
-from . import views
+from django.urls import path,include
+from rest_framework.routers import DefaultRouter
+from .views import *
 
-urlpatterns = [
-    path('health/', views.health),
-    path('login/', views.login_view),
-    path('dashboard/', views.dashboard),
+router=DefaultRouter()
+router.register('students',StudentViewSet)
+router.register('teachers',TeacherViewSet)
+router.register('attendance',AttendanceViewSet)
+router.register('fees',FeeViewSet)
+router.register('roles',RoleViewSet)
+
+urlpatterns=[
+    path('health/',health),
+    path('',include(router.urls)),
 ]
