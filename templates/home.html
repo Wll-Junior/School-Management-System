@@ -3,156 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <title>School Management System</title>
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            color: #222;
-            transition: background 0.3s, color 0.3s;
+        :root {
+            --bg: #f4f6f9;
+            --text: #1f2933;
+            --card: #ffffff;
         }
 
         body.dark {
-            background: #121212;
-            color: #eee;
+            --bg: #0f172a;
+            --text: #e5e7eb;
+            --card: #1e293b;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px 30px;
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            animation: slideDown 0.6s ease;
-        }
-
-        body.dark header {
-            background: #1e1e1e;
-        }
-
-        header img {
-            height: 50px;
-        }
-
-        h1 {
-            font-size: 22px;
+        body {
             margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.3s;
         }
 
-        main {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: var(--card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .hero {
+            padding: 80px 40px;
             text-align: center;
-            margin-top: 80px;
-            animation: fadeIn 1s ease;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideUp 0.6s ease;
         }
 
         .toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
             cursor: pointer;
-            padding: 8px 14px;
-            border-radius: 20px;
-            border: none;
-            background: #333;
-            color: white;
-        }
-
-        .contact-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .panel {
-            display: none;
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: white;
-            width: 300px;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
-            animation: fadeIn 0.4s ease;
-        }
-
-        body.dark .panel {
-            background: #1f1f1f;
-        }
-
-        .item {
-            margin-bottom: 14px;
-        }
-
-        a {
-            color: #25D366;
-            text-decoration: none;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {opacity:0}
+            to {opacity:1}
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(20px); opacity:0}
+            to {transform: translateY(0); opacity:1}
         }
     </style>
 </head>
+
 <body>
+<nav>
+    <strong>School Management System</strong>
+    <div>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <span class="toggle" onclick="toggleMode()">Dark / Light</span>
+    </div>
+</nav>
 
-<button class="toggle" onclick="toggleTheme()">?? / ??</button>
+<section class="hero">
+    <h1>Welcome to School Management System</h1>
+    <p>
+        A complete digital platform designed to manage students, teachers,
+        classes, attendance, and academic records in one secure system.
+    </p>
+</section>
 
-<header>
-    <img src="https://raw.githubusercontent.com/Wll-Junior/School-Management-System/main/frontend/src/assets/logo.png">
-    <h1>School Management System</h1>
-</header>
-
-<main>
-    <h2>Welcome ??</h2>
-    <p>Your system is live and running successfully ??</p>
-</main>
-
-<button class="contact-btn" onclick="togglePanel()">Contact Us</button>
-
-<div class="panel" id="panel">
-    <h3>Get In Touch</h3>
-
-    <div class="item">
-        <strong>WhatsApp</strong><br>
-        <a href="https://wa.me/252615189548" target="_blank">+252 615 189 548</a>
+<section class="features">
+    <div class="card">
+        <h3>Student Management</h3>
+        <p>Register, track and manage student profiles and academic progress.</p>
     </div>
 
-    <div class="item">
-        <strong>Call Us</strong><br>
-        <a href="tel:+252615189548">+252 615 189 548</a>
+    <div class="card">
+        <h3>Teacher Dashboard</h3>
+        <p>Teachers can manage classes, attendance and results easily.</p>
     </div>
 
-    <div class="item">
-        <strong>Email Us</strong><br>
-        <a href="mailto:muqtaarjunior31@gmail.com">muqtaarjunior31@gmail.com</a>
+    <div class="card">
+        <h3>Secure System</h3>
+        <p>Authentication, roles and permissions protect your data.</p>
     </div>
-</div>
+
+    <div class="card">
+        <h3>Modern Interface</h3>
+        <p>Clean UI with dark/light mode and smooth animations.</p>
+    </div>
+</section>
 
 <script>
-function togglePanel() {
-    const p = document.getElementById("panel");
-    p.style.display = p.style.display === "block" ? "none" : "block";
-}
-
-function toggleTheme() {
+function toggleMode() {
     document.body.classList.toggle("dark");
 }
 </script>
-
 </body>
 </html>
