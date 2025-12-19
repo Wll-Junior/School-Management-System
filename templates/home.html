@@ -5,65 +5,111 @@
 <title>School Management System</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
-    margin: 0;
+body{
+    margin:0;
+    font-family:Consolas, monospace;
+    background:#0f172a;
+    color:#e5e7eb;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    background: #111827;
-    color: white;
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#020617;
+}
+nav button{
+    background:none;
+    border:none;
+    color:#38bdf8;
+    font-size:16px;
+    margin-left:20px;
+    cursor:pointer;
+}
+nav button:hover{ text-decoration:underline; }
+
+/* MAIN */
+.container{
+    text-align:center;
+    margin-top:80px;
+}
+.logo{
+    font-size:42px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+.subtitle{
+    margin-top:10px;
+    font-size:18px;
+    color:#94a3b8;
 }
 
-nav a {
-    color: white;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
+/* CONTACT */
+.contact-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#22c55e;
+    color:black;
+    border:none;
+    padding:14px 22px;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
 }
 
-.hero {
-    text-align: center;
-    padding: 80px 20px;
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+}
+.modal-content{
+    background:#020617;
+    width:320px;
+    margin:10% auto;
+    padding:20px;
+    border-radius:10px;
+    animation:fade 0.3s ease;
+}
+@keyframes fade{
+    from{transform:scale(0.8);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+.modal-content input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    background:#0f172a;
+    border:1px solid #334155;
+    color:white;
+}
+.modal-content button{
+    width:100%;
+    padding:10px;
+    background:#38bdf8;
+    border:none;
+    margin-top:10px;
+    cursor:pointer;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
+/* CONTACT PANEL */
+.panel{
+    display:none;
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    background:#020617;
+    padding:15px;
+    width:280px;
+    border-radius:10px;
 }
-
-.modal-content {
-    background: white;
-    width: 350px;
-    margin: 100px auto;
-    padding: 25px;
-    border-radius: 10px;
-}
-
-.modal-content h3 {
-    text-align: center;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background: #2563eb;
-    border: none;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.panel a{
+    color:#38bdf8;
+    text-decoration:none;
 }
 </style>
 </head>
@@ -71,48 +117,64 @@ button {
 <body>
 
 <nav>
-    <strong>School Management System</strong>
+    <div class="logo">School Management System</div>
     <div>
-        <a onclick="openLogin()">Login</a>
-        <a onclick="openRegister()">Register</a>
+        <button onclick="openLogin()">Login</button>
+        <button onclick="openRegister()">Register</button>
     </div>
 </nav>
 
-<section class="hero">
-    <h1>Welcome to School Management System</h1>
-    <p>A secure platform to manage students, teachers and academic records.</p>
-</section>
+<div class="container">
+    <div class="logo">Welcome ??</div>
+    <p class="subtitle">
+        Manage students, teachers, classes and results in one secure platform.<br>
+        Fast • Secure • Modern
+    </p>
+</div>
 
-<!-- REGISTER -->
-<div class="modal" id="registerModal">
-  <div class="modal-content">
-    <h3>Welcome to School Management</h3>
-    <input placeholder="Username">
-    <input placeholder="Email">
-    <input type="password" placeholder="Password">
-    <input type="password" placeholder="Confirm Password">
-    <button>Save</button>
-  </div>
+<button class="contact-btn" onclick="toggleContact()">Contact Us</button>
+
+<div class="panel" id="contactPanel">
+    <h3>Get In Touch</h3>
+    <p>?? <a href="https://wa.me/252615189548" target="_blank">WhatsApp</a></p>
+    <p>?? <a href="tel:+252615189548">Call Us</a></p>
+    <p>?? <a href="mailto:muqtaarjunior31@gmail.com">Email Us</a></p>
 </div>
 
 <!-- LOGIN -->
 <div class="modal" id="loginModal">
-  <div class="modal-content">
-    <h3>Login</h3>
-    <input placeholder="Username">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
-  </div>
+    <div class="modal-content">
+        <h3>Login</h3>
+        <input placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button>Login</button>
+    </div>
+</div>
+
+<!-- REGISTER -->
+<div class="modal" id="registerModal">
+    <div class="modal-content">
+        <h3>Welcome to School Management</h3>
+        <input placeholder="Username">
+        <input placeholder="Email">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+        <button>Save</button>
+    </div>
 </div>
 
 <script>
-function openRegister(){
-    document.getElementById("registerModal").style.display="block";
-}
 function openLogin(){
     document.getElementById("loginModal").style.display="block";
 }
-window.onclick = function(e){
+function openRegister(){
+    document.getElementById("registerModal").style.display="block";
+}
+function toggleContact(){
+    let p=document.getElementById("contactPanel");
+    p.style.display=p.style.display==="block"?"none":"block";
+}
+window.onclick=function(e){
     if(e.target.classList.contains("modal")){
         e.target.style.display="none";
     }
