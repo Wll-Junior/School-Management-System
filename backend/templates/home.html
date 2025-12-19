@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Management System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 80px;
+            color: #2c3e50;
+        }
+        p {
+            color: #555;
+        }
+        .contact-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .panel {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: white;
+            width: 300px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+        .panel h3 {
+            margin-top: 0;
+        }
+        .item {
+            margin-bottom: 12px;
+        }
+        .item strong {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to School Management System</h1>
+<p>System is running successfully ??</p>
+
+<button class="contact-btn" onclick="togglePanel()">Contact Us</button>
+
+<div class="panel" id="contactPanel">
+    <h3>Get In Touch</h3>
+
+    <div class="item">
+        <strong>WhatsApp</strong>
+        Send us a message on WhatsApp for quick support<br>
+        ?? +252615189548
+    </div>
+
+    <div class="item">
+        <strong>Call Us</strong>
+        Speak directly with our support team<br>
+        ?? +252615189548
+    </div>
+
+    <div class="item">
+        <strong>Email Us</strong>
+        Send us an email and we'll get back to you<br>
+        ?? muqtaarjunior31@gmail.com
+    </div>
+</div>
+
+<script>
+function togglePanel() {
+    const panel = document.getElementById("contactPanel");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
