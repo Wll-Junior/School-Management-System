@@ -1,14 +1,12 @@
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Welcome from './pages/Welcome';
-import Dashboard from './pages/Dashboard';
+import logo from './assets/logo.png';
 
-export default function App(){
- return(
-  <BrowserRouter>
-   <Routes>
-    <Route path='/' element={<Welcome/>}/>
-    <Route path='/dashboard' element={<Dashboard/>}/>
-   </Routes>
-  </BrowserRouter>
- )
+function App() {
+  return (
+    <div style={{ padding: 20 }}>
+      <img src={logo} alt="School Logo" style={{ height: 60 }} />
+      <h1>School Management System</h1>
+    </div>
+  );
 }
+
+export default App;
