@@ -1,82 +1,186 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>School Management System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
-        .box {
-            max-width: 900px;
-            margin: auto;
-            background: #020617;
-            padding: 40px;
-            border-radius: 12px;
-        }
-        h1 {
-            color: #38bdf8;
-        }
-        .buttons a {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            background: #38bdf8;
-            color: black;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-        .contact {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            text-align: left;
-        }
-        .contact h2 {
-            color: #38bdf8;
-        }
-        .contact p {
-            margin: 8px 0;
-            font-size: 16px;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #94a3b8;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>School Management System</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+header {
+    background: #020617;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header img {
+    height: 50px;
+    margin-right: 15px;
+}
+header .left {
+    display: flex;
+    align-items: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    color: #38bdf8;
+}
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+nav a:hover {
+    color: #38bdf8;
+}
+.hero {
+    padding: 80px 40px;
+    text-align: center;
+}
+.hero h2 {
+    font-size: 42px;
+}
+.hero p {
+    max-width: 800px;
+    margin: auto;
+    color: #cbd5f5;
+    line-height: 1.6;
+}
+.sections {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+.card {
+    background: #020617;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+.card h3 {
+    color: #38bdf8;
+}
+footer {
+    background: #020617;
+    padding: 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+/* CONTACT MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+.modal-content {
+    background: #020617;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+.modal-content h2 {
+    color: #38bdf8;
+}
+.modal-content a {
+    display: block;
+    margin: 15px 0;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+}
+.close {
+    margin-top: 20px;
+    cursor: pointer;
+    color: #f87171;
+}
+</style>
 </head>
+
 <body>
 
-<div class="box">
-    <h1>🏫 School Management System</h1>
+<header>
+    <div class="left">
+        <img src="/static/logo.png" alt="Logo">
+        <h1>School Management</h1>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register/">Register</a>
+        <a href="/login/">Login</a>
+        <a onclick="openContact()">Contact Us</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>🏫 School Management System</h2>
     <p>
-        Ku soo dhawoow nidaam casri ah oo lagu maamulo iskuulada.<br>
+        Ku soo dhawoow nidaam casri ah oo lagu maamulo iskuulada.
         Maamul arday, macallimiin, imtixaano, attendance iyo records si ammaan ah.
     </p>
+</section>
 
-    <div class="buttons">
-        <a href="/login/">Login</a>
-        <a href="/register/">Register</a>
+<section class="sections">
+    <div class="card">
+        <h3>🎓 Students</h3>
+        <p>Manage student records and attendance.</p>
     </div>
-
-    <div class="contact">
-        <h2>📞 Contact Us</h2>
-        <p>📱 WhatsApp: <strong>+252 61 234 5678</strong></p>
-        <p>☎️ Call: <strong>+252 61 234 5678</strong></p>
-        <p>📧 Email: <strong>info@schoolms.com</strong></p>
-        <p>📍 Location: <strong>Mogadishu, Somalia</strong></p>
+    <div class="card">
+        <h3>👨‍🏫 Teachers</h3>
+        <p>Organize teachers and classes.</p>
     </div>
+    <div class="card">
+        <h3>📊 Reports</h3>
+        <p>Generate academic reports easily.</p>
+    </div>
+</section>
 
-    <footer>
-        © 2025 School Management System – All Rights Reserved
-    </footer>
+<footer>
+    © 2025 School Management System – All Rights Reserved
+</footer>
+
+<!-- CONTACT MODAL -->
+<div class="modal" id="contactModal">
+    <div class="modal-content">
+        <h2>Get in Touch</h2>
+
+        <a href="https://wa.me/252615189548" target="_blank">
+            📱 WhatsApp – Quick Support
+        </a>
+
+        <a href="tel:+252615189548">
+            ☎️ Call Us: +252 615 189 548
+        </a>
+
+        <a href="mailto:muqtaarjunior31@gmail.com">
+            📧 Email Us
+        </a>
+
+        <div class="close" onclick="closeContact()">Close</div>
+    </div>
 </div>
+
+<script>
+function openContact() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+function closeContact() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
