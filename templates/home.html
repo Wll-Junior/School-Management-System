@@ -5,79 +5,82 @@
 <title>School Management System</title>
 <style>
 body{margin:0;font-family:Arial;background:#0f172a;color:white}
-header{background:#020617;padding:20px;display:flex;justify-content:space-between}
-nav a{color:white;margin-left:15px;cursor:pointer}
-.hero{text-align:center;padding:80px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6)}
-.box{background:#020617;padding:30px;margin:120px auto;width:350px;border-radius:10px}
-input,button{width:100%;padding:10px;margin:8px 0}
-button{background:#38bdf8;border:none;font-weight:bold}
+header{background:#020617;padding:15px 40px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;margin-left:20px;text-decoration:none;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:80px 20px}
+button{padding:10px 20px;border:none;border-radius:6px;background:#38bdf8;font-weight:bold;cursor:pointer}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7)}
+.modal-content{background:#020617;padding:30px;border-radius:10px;width:350px;margin:10% auto}
+input{width:100%;padding:10px;margin:8px 0}
+.close{float:right;cursor:pointer}
+footer{background:#020617;padding:20px;text-align:center}
 </style>
 </head>
+
 <body>
 
 <header>
 <h2>🏫 School Management System</h2>
 <nav>
-<a onclick="openLogin()">Login</a>
-<a onclick="openRegister()">Register</a>
-<a onclick="openContact()">Contact</a>
+<a onclick="openModal('login')">Login</a>
+<a onclick="openModal('register')">Register</a>
+<a onclick="openModal('contact')">Contact Us</a>
 </nav>
 </header>
 
 <div class="hero">
 <h1>Ku soo dhawoow nidaam casri ah</h1>
-<p>Maamul Students, Teachers, Attendance, Fees & Reports</p>
+<p>Maamul arday, macallimiin, attendance, fees iyo reports si ammaan ah</p>
 </div>
 
 <!-- LOGIN -->
-<div class="modal" id="login">
-<div class="box">
+<div id="login" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('login')">✖</span>
 <h3>Login</h3>
-<form method="post" action="/login/">{% csrf_token %}
+<form method="post" action="/login/">
+{% csrf_token %}
 <input name="username" placeholder="Username">
-<input name="password" type="password" placeholder="Password">
-<button>Login</button>
+<input type="password" name="password" placeholder="Password">
+<button type="submit">Login</button>
 </form>
-<button onclick="closeAll()">Close</button>
 </div>
 </div>
 
 <!-- REGISTER -->
-<div class="modal" id="register">
-<div class="box">
+<div id="register" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('register')">✖</span>
 <h3>Register</h3>
-<form method="post" action="/register/">{% csrf_token %}
+<form method="post" action="/register/">
+{% csrf_token %}
 <input name="username" placeholder="Username">
 <input name="email" placeholder="Email">
-<input name="password" type="password" placeholder="Password">
-<input name="confirm" type="password" placeholder="Confirm Password">
-<button>Save</button>
+<input type="password" name="password" placeholder="Password">
+<input type="password" name="confirm" placeholder="Confirm Password">
+<button type="submit">Register</button>
 </form>
-<button onclick="closeAll()">Close</button>
 </div>
 </div>
 
 <!-- CONTACT -->
-<div class="modal" id="contact">
-<div class="box">
+<div id="contact" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('contact')">✖</span>
 <h3>Get in Touch</h3>
-<a href="https://wa.me/252615189548">WhatsApp</a><br>
-<a href="tel:+252615189548">Call</a><br>
-<a href="mailto:muqtaarjunior31@gmail.com">Email</a>
-<button onclick="closeAll()">Close</button>
+<p>📱 <a href="https://wa.me/252615189548" target="_blank">WhatsApp Support</a></p>
+<p>☎️ +252 615 189 548</p>
+<p>📧 muqtaarjunior31@gmail.com</p>
 </div>
 </div>
 
+<footer>
+© 2025 School Management System
+</footer>
+
 <script>
-function openLogin(){closeAll();login.style.display='block'}
-function openRegister(){closeAll();register.style.display='block'}
-function openContact(){closeAll();contact.style.display='block'}
-function closeAll(){
-login.style.display='none';
-register.style.display='none';
-contact.style.display='none';
-}
+function openModal(id){document.getElementById(id).style.display='block'}
+function closeModal(id){document.getElementById(id).style.display='none'}
 </script>
 
 </body>
