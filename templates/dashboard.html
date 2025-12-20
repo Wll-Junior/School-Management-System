@@ -1,4 +1,35 @@
-﻿<h1>Dashboard</h1>
-<p>Welcome {{ request.user.username }}</p>
-<a href="/logout/">Logout</a>
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<style>
+body{margin:0;font-family:Arial;display:flex;background:#0f172a;color:white}
+aside{width:220px;background:#020617;padding:20px}
+aside a{display:block;color:white;margin:10px 0}
+main{flex:1;padding:30px}
+</style>
+</head>
+<body>
 
+<aside>
+<h3>🏫 SMS</h3>
+<p>Admin: {{ request.user.username }}</p>
+<a>Dashboard</a>
+<a>Students</a>
+<a>Teachers</a>
+<a>Classes</a>
+<a>Attendance</a>
+<a>Fees</a>
+<a>Reports</a>
+<a>Settings</a>
+<a href="/logout/">Logout</a>
+</aside>
+
+<main>
+<h1>Dashboard</h1>
+<p>Welcome to School Management System</p>
+</main>
+
+</body>
+</html>
