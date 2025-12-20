@@ -1,7 +1,17 @@
-﻿<!DOCTYPE html>
-<html>
-<body>
-<h2>Dashboard</h2>
+﻿<h2>Dashboard ({{ role }})</h2>
+
+{% if role == 'ADMIN' %}
+<p>Full system access</p>
+{% endif %}
+
+{% if role == 'PRINCIPAL' %}
+<p>School management access</p>
+{% endif %}
+
+{% if role == 'TEACHER' %}
+<p>Class & attendance only</p>
+{% endif %}
+
 <a href='/app/students/'>Students</a> |
 <a href='/app/teachers/'>Teachers</a> |
 <a href='/app/classes/'>Classes</a> |
@@ -9,5 +19,3 @@
 <a href='/app/fees/'>Fees</a> |
 <a href='/app/reports/'>Reports</a> |
 <a href='/logout/'>Logout</a>
-</body>
-</html>
