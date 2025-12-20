@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Fees</title></head>
+<body style="background:#0f172a;color:white;font-family:Arial">
+<h1>Fees</h1>
+<table border="1" cellpadding="8">
+{% for i in data %}
+<tr><td>{{i}}</td></tr>
+{% empty %}
+<tr><td>No data</td></tr>
+{% endfor %}
+</table>
+</body>
+</html>

@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Dashboard</title>
 <style>
 body{margin:0;font-family:Arial;display:flex;background:#0f172a;color:white}
-aside{width:220px;background:#020617;padding:20px}
-aside a{display:block;color:white;margin:10px 0}
+aside{width:230px;background:#020617;padding:20px}
+aside a{display:block;color:white;padding:8px}
+aside a:hover{background:#1e293b}
 main{flex:1;padding:30px}
 </style>
 </head>
@@ -14,21 +14,20 @@ main{flex:1;padding:30px}
 
 <aside>
 <h3>🏫 SMS</h3>
-<p>Admin: {{ request.user.username }}</p>
-<a>Dashboard</a>
-<a>Students</a>
-<a>Teachers</a>
-<a>Classes</a>
-<a>Attendance</a>
-<a>Fees</a>
-<a>Reports</a>
-<a>Settings</a>
+<p>Admin: {{request.user.username}}</p>
+<a href="/dashboard/">Dashboard</a>
+<a href="/students/">Students</a>
+<a href="/teachers/">Teachers</a>
+<a href="/classes/">Classes</a>
+<a href="/attendance/">Attendance</a>
+<a href="/fees/">Fees</a>
+<a href="/reports/">Reports</a>
 <a href="/logout/">Logout</a>
 </aside>
 
 <main>
-<h1>Dashboard</h1>
-<p>Welcome to School Management System</p>
+<h1>Dashboard Overview</h1>
+<p>System ready & running.</p>
 </main>
 
 </body>

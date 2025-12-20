@@ -8,3 +8,9 @@ urlpatterns = [
     path('dashboard/', dashboard),
     path('logout/', logout_view),
 ]
+path('students/', students),
+path('teachers/', teachers),
+path('classes/', classes),
+path('attendance/', attendance),
+path('fees/', fees),
+path('reports/', reports),
