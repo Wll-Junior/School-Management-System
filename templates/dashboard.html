@@ -1,37 +1,33 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset='UTF-8'>
 <title>Dashboard</title>
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:white;display:flex}
-.sidebar{width:230px;background:#020617;padding:20px}
-.sidebar a{display:block;color:white;margin:15px 0;text-decoration:none}
+body{margin:0;font-family:Arial;display:flex}
+.sidebar{width:220px;background:#020617;color:white;height:100vh;padding:20px}
+.sidebar a{color:white;display:block;margin:10px 0;text-decoration:none}
 .main{flex:1;padding:30px}
-.top{display:flex;justify-content:space-between;align-items:center}
 </style>
 </head>
-
 <body>
-<div class="sidebar">
+
+<div class='sidebar'>
 <h3>🏫 SMS</h3>
-<a href="#">Dashboard</a>
-<a href="#">Students</a>
-<a href="#">Teachers</a>
-<a href="#">Classes</a>
-<a href="#">Attendance</a>
-<a href="#">Fees</a>
-<a href="#">Reports</a>
-<a href="/logout/">Logout</a>
+<a>Dashboard</a>
+<a>Students</a>
+<a>Teachers</a>
+<a>Classes</a>
+<a>Attendance</a>
+<a>Fees</a>
+<a>Reports</a>
+<a href='/logout/'>Logout</a>
 </div>
 
-<div class="main">
-<div class="top">
-<h2>Dashboard</h2>
-<p>{{ request.user.username }} (Admin)</p>
+<div class='main'>
+<h1>Dashboard</h1>
+<p>Welcome {{ request.user.username }}</p>
 </div>
 
-<p>Welcome to School Management Dashboard</p>
-</div>
 </body>
 </html>
